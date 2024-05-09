@@ -65,4 +65,3 @@ public class SpecialOfferCalculator {
                 .allMatch(requiredItem -> remainingItems.getOrDefault(requiredItem.getSku(), 0) >= requiredItem.getQuantity());
     }
 }
-
