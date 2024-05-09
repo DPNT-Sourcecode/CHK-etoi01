@@ -121,7 +121,7 @@ class CheckoutSolutionTest {
                 @Test
                 void group_items_only() {
                     int actualPrice = checkoutSolution.checkout("STXYZ");
-                    assertEquals(73, actualPrice);
+                    assertEquals(82, actualPrice);
                 }
             }
         }
@@ -145,3 +145,4 @@ class CheckoutSolutionTest {
     }
 
 }
+

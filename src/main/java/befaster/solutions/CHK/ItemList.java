@@ -32,7 +32,7 @@ public class ItemList {
                 new Item("U",40),
                 new Item("V",50),
                 new Item("W",20),
-                new Item("X",20),
+                new Item("X",17),
                 new Item("Y",20),
                 new Item("Z",21)
         );
@@ -52,3 +52,4 @@ public class ItemList {
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 }
+
