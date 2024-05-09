@@ -35,6 +35,18 @@ class CheckoutSolutionTest {
             int actualPrice = checkoutSolution.checkout("");
             assertEquals(0, actualPrice);
         }
+
+        @Test
+        void valid_skus_with_free_item_offer() {
+            int actualPrice = checkoutSolution.checkout("BEE");
+            assertEquals(80, actualPrice);
+        }
+
+        @Test
+        void valid_skus_with_free_item_offer_and_other_offers() {
+            int actualPrice = checkoutSolution.checkout("BBBEE");
+            assertEquals(125, actualPrice);
+        }
     }
 
     @Nested
@@ -42,16 +54,17 @@ class CheckoutSolutionTest {
 
         @Test
         void invalid_skus() {
-            int actualPrice = checkoutSolution.checkout("E");
+            int actualPrice = checkoutSolution.checkout("Z");
             assertEquals(-1, actualPrice);
         }
 
         @Test
         void invalid_skus_mixed_with_valid_skus() {
-            int actualPrice = checkoutSolution.checkout("ABCDE");
+            int actualPrice = checkoutSolution.checkout("ABCDZ");
             assertEquals(-1, actualPrice);
         }
 
     }
 
 }
+

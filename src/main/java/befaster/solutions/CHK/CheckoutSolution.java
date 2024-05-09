@@ -1,18 +1,10 @@
 package befaster.solutions.CHK;
 
-import befaster.runner.SolutionNotImplementedException;
-
 import java.util.*;
 
 public class CheckoutSolution {
 
-    //while we could use a map, at this size, it is faster to use a list (for now)
-    List<Item> itemList = List.of(
-            new Item("A", 50, new SpecialOffer(3, 130)),
-            new Item("B", 30, new SpecialOffer(2, 45)),
-            new Item("C", 20),
-            new Item("D", 15)
-    );
+    ItemList itemList = new ItemList();
 
     /*
     notes/questions: are skus multiples of the same letter or with numerals, i.e. 3A or AAA?
@@ -24,9 +16,7 @@ public class CheckoutSolution {
         String[] individualSkus = skus.split("");
         Map<Item, Integer> cartItems = new HashMap<>();
         for (String sku : individualSkus) {
-            Optional<Item> itemOpt = itemList.stream()
-                    .filter(item -> Objects.equals(item.sku(), sku))
-                    .findFirst();
+            Optional<Item> itemOpt = itemList.findItem(sku);
             if (itemOpt.isEmpty()) {
                 return -1;
             }
@@ -57,31 +47,7 @@ public class CheckoutSolution {
         return totalSum;
     }
 
-    record Item(
-            String sku,
-            Integer price,
-            SpecialOffer specialOffer
-    ) {
-
-        public Item(
-                String sku,
-                Integer price
-        ) {
-            this(sku, price, null);
-        }
-
-        public boolean hasSpecialOffer() {
-            return specialOffer != null;
-        }
-
-    }
-
-    record SpecialOffer(
-            Integer quantity,
-            Integer price
-    ) {
-
-    }
 }
+
 
 

@@ -1,2 +1,9 @@
-package befaster.solutions.CHK;public class SpecialOffer {
+package befaster.solutions.CHK;
+
+record SpecialOffer(
+        Integer quantity,
+        Integer price
+) {
+
 }
+
