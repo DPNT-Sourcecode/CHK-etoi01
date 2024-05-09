@@ -52,4 +52,3 @@ public class ItemList {
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 }
-
