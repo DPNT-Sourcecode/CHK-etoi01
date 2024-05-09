@@ -1,2 +1,5 @@
-package befaster.solutions.CHK;public class Cart {
+package befaster.solutions.CHK;
+
+public class Cart {
 }
+

@@ -1,20 +1,24 @@
 package befaster.solutions.CHK;
 
+import java.util.Collections;
+import java.util.List;
+
 record Item(
         String sku,
         Integer price,
-        SpecialOffer specialOffer
+        List<SpecialOffer> specialOffers
 ) {
 
     public Item(
             String sku,
             Integer price
     ) {
-        this(sku, price, null);
+        this(sku, price, Collections.emptyList());
     }
 
     public boolean hasSpecialOffer() {
-        return specialOffer != null;
+        return !specialOffers.isEmpty();
     }
 
 }
+

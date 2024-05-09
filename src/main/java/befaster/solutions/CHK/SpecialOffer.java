@@ -1,8 +1,11 @@
 package befaster.solutions.CHK;
 
+import java.util.List;
+
 record SpecialOffer(
-        Integer quantity,
-        Integer price
+        List<Item> requiredItems,
+        Integer priceDiscount
 ) {
 
 }
+

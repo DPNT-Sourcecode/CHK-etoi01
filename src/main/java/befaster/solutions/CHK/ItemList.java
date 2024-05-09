@@ -1,20 +1,21 @@
 package befaster.solutions.CHK;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 public class ItemList {
-    List<Item> itemList = List.of(
-            new Item("A", 50, new SpecialOffer(3, 130)),
-            new Item("B", 30, new SpecialOffer(2, 45)),
-            new Item("C", 20),
-            new Item("D", 15)
-    );
+
+    Map<String, Item> items = new HashMap<>();
+
+    public ItemList() {
+        items.put("A", new Item("A",50));
+        items.put("B", new Item("B",30));
+        items.put("C", new Item("C",20));
+        items.put("D", new Item("D",15));
+        items.put("E", new Item("E",40));
+    }
 
     public Optional<Item> findItem(String sku) {
-        return itemList.stream()
-                .filter(item -> Objects.equals(item.sku(), sku))
-                .findFirst();
+        return items.get
     }
 }
+
