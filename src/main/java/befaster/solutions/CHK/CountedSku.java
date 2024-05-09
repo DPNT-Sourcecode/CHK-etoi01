@@ -1,32 +1,30 @@
 package befaster.solutions.CHK;
 
-public class CountedItem {
-    private Item item;
+public class CountedSku {
+    private String sku;
     private Integer quantity;
 
-    public CountedItem(
-            Item item,
+    public CountedSku(
+            String item,
             Integer quantity
     ) {
-        this.item = item;
+        this.sku = item;
         this.quantity = quantity;
     }
 
-    public CountedItem(
-            CountedItem countedItem
+    public CountedSku(
+            CountedSku countedSku
     ) {
-        this.item = new Item(countedItem.item);
-        this.quantity = countedItem.quantity;
+        this.sku = countedSku.sku;
+        this.quantity = countedSku.quantity;
     }
 
-    public void incrementQuantity() {
-        this.quantity++;
+    public String getSku() {
+        return sku;
     }
 
-    public void decrementQuantity(int amount) {
-        if (quantity - amount < 0) {
-            throw new UnsupportedOperationException();
-        }
-        this.quantity -= amount;
+    public Integer getQuantity() {
+        return quantity;
     }
 }
+

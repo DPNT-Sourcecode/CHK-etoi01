@@ -1,55 +1,62 @@
 package befaster.solutions.CHK;
 
-import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
-public class SpecialOfferApplicator {
+public class SpecialOfferCalculator {
 
-    private ItemList itemList = new ItemList();
-
-    private List<CountedItem> processedItems = new LinkedList<>();
-
-    private List<CountedItem> initialItems = new LinkedList<>();
-
-    private List<SpecialOffer> specialOffers = List.of(
+    private static final List<SpecialOffer> specialOffers = List.of(
             new SpecialOffer(
                     List.of(
-                            new CountedItem(itemList.findItem("A").get(), 5)
+                            new CountedSku("A", 5)
                     ),
                     50
             ),
             new SpecialOffer(
                     List.of(
-                            new CountedItem(itemList.findItem("E").get(), 2),
-                            new CountedItem(itemList.findItem("B").get(), 1)
+                            new CountedSku("E", 2),
+                            new CountedSku("B", 1)
                     ),
                     30
             ),
             new SpecialOffer(
                     List.of(
-                            new CountedItem(itemList.findItem("A").get(), 3)
+                            new CountedSku("A", 3)
                     ),
                     20
             ),
             new SpecialOffer(
                     List.of(
-                            new CountedItem(itemList.findItem("B").get(), 2)
+                            new CountedSku("B", 2)
                     ),
                     15
             )
     );
 
-    public SpecialOfferApplicator(
-            Cart cart
-    ) {
-        this.initialItems = cart.cartItems();
-
+    public static Integer totalDiscounts(Cart cart) {
+        Map<String, Integer> remainingItems = cart.getCountedItems();
+        Integer totalDiscount = 0;
+        for (SpecialOffer specialOffer : specialOffers) {
+            List<CountedSku> requiredItems = specialOffer.requiredItems();
+            boolean hasEnoughItems = hasEnoughItems(requiredItems, remainingItems);
+            while (hasEnoughItems) {
+                for (CountedSku requiredItem : requiredItems) {
+                    remainingItems.compute(requiredItem.getSku(), (s, integer) -> integer - requiredItem.getQuantity());
+                }
+                totalDiscount += specialOffer.priceDiscount();
+                hasEnoughItems = hasEnoughItems(requiredItems, remainingItems);
+            }
+        }
+        return totalDiscount;
     }
 
-    public Integer discountedTotalPrice() {
-        Integer totalPrice = 0;
-        for (SpecialOffer specialOffer : specialOffers) {
-            specialOffer.
-        }
+    private static boolean hasEnoughItems(
+            List<CountedSku> requiredItems,
+            Map<String, Integer> remainingItems
+    ) {
+        return requiredItems
+                .stream()
+                .allMatch(requiredItem -> remainingItems.getOrDefault(requiredItem.getSku(), 0) > requiredItem.getQuantity());
     }
 }
+
