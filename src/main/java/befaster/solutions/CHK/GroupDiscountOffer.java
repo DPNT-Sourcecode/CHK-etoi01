@@ -35,7 +35,7 @@ public class GroupDiscountOffer implements ISpecialOffer {
             skuLoop:
             for (Item sku : requiredSkus) {
                 while (bundleCounter > 0) {
-                    Integer itemCount = items.get(sku.sku());
+                    Integer itemCount = items.getOrDefault(sku.sku(), 0);
                     if (itemCount == 0) {
                         continue skuLoop;
                     }
@@ -49,4 +49,5 @@ public class GroupDiscountOffer implements ISpecialOffer {
         throw new IllegalArgumentException("Could not apply offer to specified items");
     }
 }
+
 

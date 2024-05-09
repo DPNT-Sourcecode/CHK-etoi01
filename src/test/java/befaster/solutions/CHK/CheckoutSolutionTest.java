@@ -113,8 +113,24 @@ class CheckoutSolutionTest {
             class IncludingGroupOffers {
 
                 @Test
+                void simple_bundle() {
+                    int actualPrice = checkoutSolution.checkout("STX");
+                    assertEquals(45, actualPrice);
+                }
+                @Test
+                void simple_double_bundle() {
+                    int actualPrice = checkoutSolution.checkout("SSTTXX");
+                    assertEquals(90, actualPrice);
+                }
+                @Test
+                void simple_bundle_of_same_item() {
+                    int actualPrice = checkoutSolution.checkout("SSS");
+                    assertEquals(45, actualPrice);
+                }
+
+                @Test
                 void all_skus() {
-                    int actualPrice = checkoutSolution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"); //adding more skus gives bundle
+                    int actualPrice = checkoutSolution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
                     assertEquals(837, actualPrice);
                 }
 
@@ -145,5 +161,6 @@ class CheckoutSolutionTest {
     }
 
 }
+
 
 
