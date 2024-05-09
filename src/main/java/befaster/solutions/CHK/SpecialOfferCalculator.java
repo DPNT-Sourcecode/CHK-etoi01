@@ -56,7 +56,8 @@ public class SpecialOfferCalculator {
     ) {
         return requiredItems
                 .stream()
-                .allMatch(requiredItem -> remainingItems.getOrDefault(requiredItem.getSku(), 0) > requiredItem.getQuantity());
+                .allMatch(requiredItem -> remainingItems.getOrDefault(requiredItem.getSku(), 0) >= requiredItem.getQuantity());
     }
 }
+
 
