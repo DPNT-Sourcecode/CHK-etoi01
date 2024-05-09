@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class Cart {
     private ItemList itemList;
@@ -22,10 +23,12 @@ public class Cart {
         }
     }
 
-    public Map<String, CountedItem> cartItems() {
-        return countedItems.entrySet()
+    //copy constructor to keep state of counted items in cart consistent
+    public List<CountedItem> cartItems() {
+        return countedItems.values()
                 .stream()
-                .map(entry -> new Map.Entry<>(entry.getKey(), new CountedItem(entry.getValue())))
-                .collect()
+                .map(CountedItem::new)
+                .collect(Collectors.toList());
     }
 }
+

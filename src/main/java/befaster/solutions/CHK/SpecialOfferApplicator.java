@@ -42,7 +42,15 @@ public class SpecialOfferApplicator {
     public SpecialOfferApplicator(
             Cart cart
     ) {
-        this.initialItems = initialItems;
+        this.initialItems = cart.cartItems();
 
     }
+
+    public Integer discountedTotalPrice() {
+        Integer totalPrice = 0;
+        for (SpecialOffer specialOffer : specialOffers) {
+            specialOffer.
+        }
+    }
 }
+

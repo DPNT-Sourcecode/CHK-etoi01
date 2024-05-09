@@ -22,4 +22,12 @@ public class CountedItem {
     public void incrementQuantity() {
         this.quantity++;
     }
+
+    public void decrementQuantity(int amount) {
+        if (quantity - amount < 0) {
+            throw new UnsupportedOperationException();
+        }
+        this.quantity -= amount;
+    }
 }
+
