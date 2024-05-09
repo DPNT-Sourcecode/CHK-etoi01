@@ -30,4 +30,3 @@ public class CountedItem {
         this.quantity -= amount;
     }
 }
-
