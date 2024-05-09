@@ -37,11 +37,8 @@ public class CheckoutSolution {
         for (var skuEntry : cartItems.entrySet()) {
             /*
             for a regular item, the price is item price * quantity
-            for an item with a special offer, the price is
-                quantity divided by special offer amount (e.g. for 7 A, 7 / 3 = 2.333, int round down to 2
-                special offer value = 2 * special offer value
-                remainder items 7 % 3 = 1, 1 * price
-                total 2*special offer + 1*price
+            for an item with a special offer, we calculate the price by finding the amount of special offers,
+                and the price of the remaining items
              */
             Item item = skuEntry.getKey();
             Integer itemQuantity = skuEntry.getValue();
@@ -83,3 +80,4 @@ public class CheckoutSolution {
 
     }
 }
+
