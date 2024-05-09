@@ -6,7 +6,14 @@ import befaster.runner.SolutionNotImplementedException;
 public class SumSolution {
 
     public int compute(int x, int y) {
-        throw new SolutionNotImplementedException();
+        return x + y;
+    }
+
+    public static void main(String[] args) {
+        SumSolution solution = new SumSolution();
+        System.out.println(solution.compute(5, 4));
+        System.out.println(solution.compute(4, -1));
     }
 
 }
+
