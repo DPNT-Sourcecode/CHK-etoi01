@@ -18,6 +18,9 @@ public class CheckoutSolution {
     notes/questions: are skus multiples of the same letter or with numerals, i.e. 3A or AAA?
      */
     public Integer checkout(String skus) {
+        if (skus.isEmpty() || skus.isBlank()) {
+            return 0;
+        }
         String[] individualSkus = skus.split("");
         Map<Item, Integer> cartItems = new HashMap<>();
         for (String sku : individualSkus) {
@@ -80,4 +83,5 @@ public class CheckoutSolution {
 
     }
 }
+
 

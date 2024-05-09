@@ -29,6 +29,12 @@ class CheckoutSolutionTest {
             int actualPrice = checkoutSolution.checkout("AAABB");
             assertEquals(175, actualPrice);
         }
+
+        @Test
+        void valid_with_no_skus() {
+            int actualPrice = checkoutSolution.checkout("");
+            assertEquals(0, actualPrice);
+        }
     }
 
     @Nested
