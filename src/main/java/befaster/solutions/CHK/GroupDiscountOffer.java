@@ -13,7 +13,7 @@ public class GroupDiscountOffer implements ISpecialOffer {
     Integer bundleSize;
 
     public GroupDiscountOffer(List<Item> requiredSkus, Integer bundleValue, Integer bundleSize) {
-        this.requiredSkus = requiredSkus.stream().sorted(Comparator.comparing(Item::price)).collect(Collectors.toList());
+        this.requiredSkus = requiredSkus.stream().sorted(Comparator.comparing(Item::price).reversed()).collect(Collectors.toList());
         this.bundleValue = bundleValue;
         this.bundleSize = bundleSize;
     }
@@ -49,3 +49,4 @@ public class GroupDiscountOffer implements ISpecialOffer {
         throw new IllegalArgumentException("Could not apply offer to specified items");
     }
 }
+

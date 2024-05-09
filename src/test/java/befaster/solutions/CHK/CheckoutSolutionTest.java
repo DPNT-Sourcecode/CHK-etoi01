@@ -28,9 +28,9 @@ class CheckoutSolutionTest {
             }
 
             @Test
-            void all_skus() {
-                int actualPrice = checkoutSolution.checkout("ABCDEFGHIJKLMNOPQRSTUVW");
-                assertEquals(965, actualPrice);
+            void almost_all_skus() {
+                int actualPrice = checkoutSolution.checkout("ABCDEFGHIJKLMNOPQRSTUVW"); //adding more skus gives bundle
+                assertEquals(829, actualPrice);
             }
 
             @Test
@@ -111,6 +111,13 @@ class CheckoutSolutionTest {
 
             @Nested
             class IncludingGroupOffers {
+
+                @Test
+                void all_skus() {
+                    int actualPrice = checkoutSolution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"); //adding more skus gives bundle
+                    assertEquals(837, actualPrice);
+                }
+
                 @Test
                 void group_items_only() {
                     int actualPrice = checkoutSolution.checkout("STXYZ");
