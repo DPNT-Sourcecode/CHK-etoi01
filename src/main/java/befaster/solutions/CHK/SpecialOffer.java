@@ -6,4 +6,3 @@ record SpecialOffer(
 ) {
 
 }
-
