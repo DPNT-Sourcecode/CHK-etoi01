@@ -15,7 +15,8 @@ public class ItemList {
     }
 
     public Optional<Item> findItem(String sku) {
-        return items.get
+        return Optional.ofNullable(items.get(sku));
     }
 }
+
 
