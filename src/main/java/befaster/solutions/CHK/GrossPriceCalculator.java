@@ -1,18 +1,11 @@
 package befaster.solutions.CHK;
 
-import java.util.HashMap;
 import java.util.Map;
 
-public class PriceCalculator {
-    Map<String, Integer> priceList = new HashMap<>();
+public class GrossPriceCalculator {
 
-    public PriceCalculator() {
-        priceList.put("A", 50);
-        priceList.put("B", 30);
-        priceList.put("C", 20);
-        priceList.put("D", 15);
-        priceList.put("E", 40);
-    }
+    Map<String, Integer> priceList = new ItemList().priceList();
+
 
     public Integer getTotalGrossPrice(Cart cart) {
         Map<String, Integer> countedCartItems = cart.getCountedItems();
@@ -23,3 +16,4 @@ public class PriceCalculator {
 
     }
 }
+

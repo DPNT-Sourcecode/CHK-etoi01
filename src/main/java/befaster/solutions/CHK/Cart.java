@@ -1,10 +1,8 @@
 package befaster.solutions.CHK;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class Cart {
     private ItemList itemList = new ItemList();
@@ -25,3 +23,4 @@ public class Cart {
         return new HashMap<>(countedItems);
     }
 }
+

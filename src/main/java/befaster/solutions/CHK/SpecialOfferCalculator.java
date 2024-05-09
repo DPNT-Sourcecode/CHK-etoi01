@@ -30,6 +30,12 @@ public class SpecialOfferCalculator {
                             new CountedSku("B", 2)
                     ),
                     15
+            ),
+            new SpecialOffer(
+                    List.of(
+                            new CountedSku("F", 3)
+                    ),
+                    10
             )
     );
 
@@ -59,3 +65,4 @@ public class SpecialOfferCalculator {
                 .allMatch(requiredItem -> remainingItems.getOrDefault(requiredItem.getSku(), 0) >= requiredItem.getQuantity());
     }
 }
+

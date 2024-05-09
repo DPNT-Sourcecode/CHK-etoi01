@@ -1,12 +1,10 @@
 package befaster.solutions.CHK;
 
-import java.util.*;
-
 public class CheckoutSolution {
 
     ItemList itemList = new ItemList();
 
-    PriceCalculator priceCalculator = new PriceCalculator();
+    GrossPriceCalculator priceCalculator = new GrossPriceCalculator();
 
     /*
     notes/questions: are skus multiples of the same letter or with numerals, i.e. 3A or AAA?
@@ -26,3 +24,4 @@ public class CheckoutSolution {
     }
 
 }
+
