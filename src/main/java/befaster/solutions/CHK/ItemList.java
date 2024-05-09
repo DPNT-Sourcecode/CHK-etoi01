@@ -19,7 +19,7 @@ public class ItemList {
                 new Item("H",10),
                 new Item("I",35),
                 new Item("J",60),
-                new Item("K",80),
+                new Item("K",70),
                 new Item("L",90),
                 new Item("M",15),
                 new Item("N",40),
@@ -52,4 +52,5 @@ public class ItemList {
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 }
+
 

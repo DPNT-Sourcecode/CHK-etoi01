@@ -55,7 +55,7 @@ public class SpecialOfferCalculator {
                     List.of(
                             new CountedSku("K", 2)
                     ),
-                    10
+                    20
             ),
             new MultiPriceOffer(
                     List.of(
@@ -127,3 +127,4 @@ public class SpecialOfferCalculator {
         return totalDiscount;
     }
 }
+

@@ -30,7 +30,7 @@ class CheckoutSolutionTest {
             @Test
             void almost_all_skus() {
                 int actualPrice = checkoutSolution.checkout("ABCDEFGHIJKLMNOPQRSTUVW"); //adding more skus gives bundle
-                assertEquals(829, actualPrice);
+                assertEquals(795, actualPrice);
             }
 
             @Test
@@ -145,4 +145,5 @@ class CheckoutSolutionTest {
     }
 
 }
+
 
