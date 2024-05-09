@@ -22,6 +22,12 @@ class CheckoutSolutionTest {
             }
 
             @Test
+            void some_more_skus() {
+                int actualPrice = checkoutSolution.checkout("ABCDEF");
+                assertEquals(165, actualPrice);
+            }
+
+            @Test
             void all_skus() {
                 int actualPrice = checkoutSolution.checkout("ABCDEF");
                 assertEquals(165, actualPrice);
