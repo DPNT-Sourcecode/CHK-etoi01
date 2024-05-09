@@ -8,5 +8,3 @@ record SpecialOffer(
 ) {
 
 }
-
-

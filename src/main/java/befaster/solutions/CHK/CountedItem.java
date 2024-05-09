@@ -23,5 +23,3 @@ public class CountedItem {
         this.quantity++;
     }
 }
-
-

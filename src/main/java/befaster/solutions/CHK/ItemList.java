@@ -18,5 +18,3 @@ public class ItemList {
         return Optional.ofNullable(items.get(sku));
     }
 }
-
-
