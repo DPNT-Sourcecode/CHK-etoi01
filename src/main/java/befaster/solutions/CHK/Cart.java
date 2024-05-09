@@ -21,6 +21,14 @@ public class Cart {
             countedItem.incrementQuantity(); //mem reference should update this in the map
         }
     }
+
+    public Map<String, CountedItem> cartItems() {
+        return countedItems.entrySet()
+                .stream()
+                .map(entry -> new Map.Entry<>(entry.getKey(), new CountedItem(entry.getValue())))
+                .collect()
+    }
 }
+
 
 

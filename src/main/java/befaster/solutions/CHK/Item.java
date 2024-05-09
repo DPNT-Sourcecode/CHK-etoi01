@@ -8,6 +8,11 @@ public record Item(
         Integer price
 ) {
 
+    public Item(Item item) {
+        this(item.sku, item.price);
+    }
+
 }
+
 
 

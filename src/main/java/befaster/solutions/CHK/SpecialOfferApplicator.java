@@ -40,11 +40,12 @@ public class SpecialOfferApplicator {
     );
 
     public SpecialOfferApplicator(
-            List<CountedItem> initialItems
+            Cart cart
     ) {
         this.initialItems = initialItems;
 
     }
 }
+
 
 

@@ -12,8 +12,16 @@ public class CountedItem {
         this.quantity = quantity;
     }
 
+    public CountedItem(
+            CountedItem countedItem
+    ) {
+        this.item = new Item(countedItem.item);
+        this.quantity = countedItem.quantity;
+    }
+
     public void incrementQuantity() {
         this.quantity++;
     }
 }
+
 
