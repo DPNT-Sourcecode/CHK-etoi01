@@ -11,11 +11,14 @@ public class Cart {
     private Map<String, Integer> countedItems = new HashMap<>();
 
     public Cart(String skus) {
+        if (skus.isBlank()) {
+            throw new IllegalArgumentException("Cannot have an empty string");
+        }
         String[] individualSkus = skus.split("");
         for (String skuString : individualSkus) {
             Optional<Item> itemOpt = itemList.findItem(skuString);
             if (itemOpt.isEmpty()) {
-                continue;
+                throw new IllegalArgumentException("Could not find required item");
             }
             countedItems.compute(skuString, (s, integer) -> integer == null ? 1 : integer + 1);
         }
@@ -25,5 +28,3 @@ public class Cart {
         return new HashMap<>(countedItems);
     }
 }
-
-

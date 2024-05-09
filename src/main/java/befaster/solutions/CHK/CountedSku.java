@@ -27,4 +27,3 @@ public class CountedSku {
         return quantity;
     }
 }
-
