@@ -3,14 +3,14 @@ package befaster.solutions.CHK;
 import java.util.List;
 import java.util.Map;
 
-public class GroupSpecialOffer implements ISpecialOffer {
+public class MultiPriceOffer implements ISpecialOffer {
 
     List<CountedSku> requiredSkus;
-    Integer discountValue;
+    Integer resultingDiscount;
 
-    public GroupSpecialOffer(List<CountedSku> requiredSkus, Integer discountValue) {
+    public MultiPriceOffer(List<CountedSku> requiredSkus, Integer resultingDiscount) {
         this.requiredSkus = requiredSkus;
-        this.discountValue = discountValue;
+        this.resultingDiscount = resultingDiscount;
     }
 
     @Override
@@ -27,11 +27,12 @@ public class GroupSpecialOffer implements ISpecialOffer {
     }
 
     @Override
-    public Integer applyDiscountAndGet(Map<String, Integer> items) {
+    public Integer adjustItemsAndGetResultingDiscount(Map<String, Integer> items) {
         if (canApplyOffer(items)) {
             adjustItemsForOffer(items);
-            return discountValue;
+            return resultingDiscount;
         }
         throw new IllegalArgumentException("Could not apply offer to specified items");
     }
 }
+

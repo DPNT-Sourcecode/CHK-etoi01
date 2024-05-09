@@ -106,7 +106,16 @@ class CheckoutSolutionTest {
             @Test
             void many_offers() {
                 int actualPrice = checkoutSolution.checkout("AAAAABBBBBEEEE");
-                assertEquals(200+160+75, actualPrice);
+                assertEquals(435, actualPrice);
+            }
+
+            @Nested
+            class IncludingGroupOffers {
+                @Test
+                void group_items_only() {
+                    int actualPrice = checkoutSolution.checkout("STXYZ");
+                    assertEquals(73, actualPrice);
+                }
             }
         }
     }
