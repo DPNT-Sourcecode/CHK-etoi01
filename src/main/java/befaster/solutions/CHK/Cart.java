@@ -25,4 +25,3 @@ public class Cart {
         return new HashMap<>(countedItems);
     }
 }
-
