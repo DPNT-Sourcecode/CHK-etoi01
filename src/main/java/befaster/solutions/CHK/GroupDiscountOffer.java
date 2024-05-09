@@ -49,4 +49,3 @@ public class GroupDiscountOffer implements ISpecialOffer {
         throw new IllegalArgumentException("Could not apply offer to specified items");
     }
 }
-

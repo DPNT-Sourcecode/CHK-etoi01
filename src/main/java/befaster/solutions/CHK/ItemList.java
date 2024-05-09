@@ -27,14 +27,14 @@ public class ItemList {
                 new Item("P",50),
                 new Item("Q",30),
                 new Item("R",50),
-                new Item("S",30),
+                new Item("S",20),
                 new Item("T",20),
                 new Item("U",40),
                 new Item("V",50),
                 new Item("W",20),
-                new Item("X",90),
-                new Item("Y",10),
-                new Item("Z",50)
+                new Item("X",20),
+                new Item("Y",20),
+                new Item("Z",21)
         );
         for (Item item : itemList) {
             items.put(item.sku(), item);

@@ -127,5 +127,3 @@ public class SpecialOfferCalculator {
         return totalDiscount;
     }
 }
-
-

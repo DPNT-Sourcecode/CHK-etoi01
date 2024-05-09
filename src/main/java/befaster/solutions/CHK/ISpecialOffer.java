@@ -9,5 +9,3 @@ public interface ISpecialOffer {
     Integer adjustItemsAndGetResultingDiscount(Map<String, Integer> items);
 
 }
-
-

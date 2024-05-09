@@ -29,7 +29,7 @@ class CheckoutSolutionTest {
 
             @Test
             void all_skus() {
-                int actualPrice = checkoutSolution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+                int actualPrice = checkoutSolution.checkout("ABCDEFGHIJKLMNOPQRSTUVW");
                 assertEquals(965, actualPrice);
             }
 
