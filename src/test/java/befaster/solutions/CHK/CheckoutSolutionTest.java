@@ -29,8 +29,8 @@ class CheckoutSolutionTest {
 
             @Test
             void all_skus() {
-                int actualPrice = checkoutSolution.checkout("ABCDEF");
-                assertEquals(165, actualPrice);
+                int actualPrice = checkoutSolution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+                assertEquals(965, actualPrice);
             }
 
             @Test
@@ -80,6 +80,30 @@ class CheckoutSolutionTest {
             }
 
             @Test
+            void offer_N_with_normal_M() {
+                int actualPrice = checkoutSolution.checkout("NNNNNNMMM");
+                assertEquals(255, actualPrice);
+            }
+
+            @Test
+            void offer_R_with_free_Q() {
+                int actualPrice = checkoutSolution.checkout("RRRQRRRQRRRQ");
+                assertEquals(450, actualPrice);
+            }
+
+            @Test
+            void offer_R_with_Q() {
+                int actualPrice = checkoutSolution.checkout("RRRQRRRQRRRQQQQ");
+                assertEquals(530, actualPrice);
+            }
+
+            @Test
+            void offer_V() {
+                int actualPrice = checkoutSolution.checkout("VVVVVV");
+                assertEquals(260, actualPrice);
+            }
+
+            @Test
             void many_offers() {
                 int actualPrice = checkoutSolution.checkout("AAAAABBBBBEEEE");
                 assertEquals(200+160+75, actualPrice);
@@ -105,3 +129,4 @@ class CheckoutSolutionTest {
     }
 
 }
+
